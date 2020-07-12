@@ -7,4 +7,7 @@ pacstrap -C pacman.conf target_root base base-devel lightdm lightdm-gtk-greeter 
 
 rm -fr target_root/etc/pacman.conf
 cp -v pacman.conf target_root/etc/
+#temp copy internal script to chroot:
+cp internal_script.sh target_root/
 arch-chroot target_root "sh internal_script.sh"
+rm target_root/internal_script.sh
