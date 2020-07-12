@@ -5,9 +5,16 @@ kernel="linux-raspberrypi4-5.4.y"
 pacstrap -C pacman.conf target_root base base-devel lightdm lightdm-gtk-greeter networkmanager
 
 
-rm -fr target_root/etc/pacman.conf
+rm -fr target_root/etc/pacman.conf target_root/etc/makepkg.conf
 cp -v pacman.conf target_root/etc/
+cp -v makepkg.conf target_root/etc/
 #temp copy internal script to chroot:
 cp internal_script.sh target_root/
+
+#mount --bind
+mount --bind target_root target_root
 arch-chroot target_root "./internal_script.sh"
 rm target_root/internal_script.sh
+
+#un-bind directory
+umount target_root
