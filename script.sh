@@ -18,3 +18,4 @@ rm target_root/internal_script.sh
 
 #un-bind directory
 umount target_root
+tar -czvf instantOS-arm-raspi4.tar.gz target_root/*
