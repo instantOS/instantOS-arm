@@ -2,7 +2,7 @@
 #Note: Run this script on a raspberry pi 4, to generate a functioning tar ball
 mkdir target_root
 kernel="linux-raspberrypi4-5.4.y"
-pacstrap -C pacman.conf target_root base base-devel lightdm lightdm-gtk-greeter networkmanager xdg-user-dirs st nitrogen
+pacstrap -C pacman.conf target_root base base-devel lightdm lightdm-gtk-greeter networkmanager xdg-user-dirs nitrogen
 
 
 rm -fr target_root/etc/pacman.conf target_root/etc/makepkg.conf
