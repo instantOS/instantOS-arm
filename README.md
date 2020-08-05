@@ -1,5 +1,5 @@
 # instantARCH-raspi
 
-## todo:
-- add config files
-- Maybe create an iso (idk)
+
+## Todo:
+https://github.com/Titaniumtown/instantARCH-raspi/projects/2
