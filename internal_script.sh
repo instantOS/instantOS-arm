@@ -22,3 +22,4 @@ sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 
 systemctl enable lightdm
 systemctl enable NetworkManager
+systemctl enable systemd-timesyncd
