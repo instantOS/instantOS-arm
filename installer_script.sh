@@ -11,7 +11,7 @@ done
 
 drive=$(cat /tmp/raspiinstaller | fzf)
 
-echo Are you sure this is the right drive: $drives?
+echo Are you sure this is the right drive: $drive?
 
 #read right
 
