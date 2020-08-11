@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm /tmp/raspiinstaller
+rm /tmp/raspiinstaller > /dev/null 2>&1
 
 drives=$(lsblk -n | awk '!/─/' | awk '{ print $1 }')
 
