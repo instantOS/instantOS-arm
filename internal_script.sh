@@ -19,12 +19,27 @@ fi
 sed -i 's/^#logind-check-graphical=.*/logind-check-graphical=true/' /etc/lightdm/lightdm.conf
 sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 
+#enable services
 systemctl enable lightdm
 systemctl enable NetworkManager
 systemctl enable systemd-timesyncd
 
-
+#create user
 def_username="instantos"
 def_password="instantos"
 useradd ${def_username}
 echo ${def_password} | passwd --stdin ${def_username}
+
+#setup user
+mkdir /home/${def_username}
+chown -R ${def_username} /home/${def_username}
+
+echo '''#!/bin/sh``` > /home/${def_username}/.xserverrc
+echo '''exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR''' >> /home/${def_username}/.xserverrc
+
+echo "instantxsession" > /home/${def_username}/.xinitrc
+
+#add startx to bashrc
+echo "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then" > /home/${def_username}/.bash_profile
+echo "  exec startx" >> /home/${def_username}/.bash_profile
+echo "fi" >> /home/${def_username}/.bash_profile
