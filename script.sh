@@ -20,4 +20,7 @@ sed -i -e 's/#gpu_mem=256/gpu_mem=256/g' target_root/boot/config.txt
 
 #un-bind directory
 umount target_root
-tar -czvf instantOS-arm-raspi4.tar.gz target_root/*
+
+cd target_root
+tar -czvf ../instantOS-arm-raspi4.tar.gz .
+cd ..
