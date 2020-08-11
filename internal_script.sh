@@ -25,17 +25,15 @@ systemctl enable NetworkManager
 systemctl enable systemd-timesyncd
 
 #create user
-def_username="instantos"
-def_password="instantos"
-useradd -m $def_username
-echo -e "$def_password\n$def_password" | passwd "$(def_username)"
+useradd -m instantos
+echo -e "instantos\ninstantos" | passwd instantos
 
-echo '''#!/bin/sh``` > /home/${def_username}/.xserverrc
-echo '''exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR''' >> /home/${def_username}/.xserverrc
+echo '''#!/bin/sh``` > /home/instantos/.xserverrc
+echo '''exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR''' >> /home/instantos/.xserverrc
 
-echo "instantxsession" > /home/${def_username}/.xinitrc
+echo "instantxsession" > /home/instantos/.xinitrc
 
 #add startx to bashrc
-echo "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then" > /home/${def_username}/.bash_profile
-echo "  exec startx" >> /home/${def_username}/.bash_profile
-echo "fi" >> /home/${def_username}/.bash_profile
+echo "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then" > /home/instantos/.bash_profile
+echo "  exec startx" >> /home/instantos/.bash_profile
+echo "fi" >> /home/instantos/.bash_profile
