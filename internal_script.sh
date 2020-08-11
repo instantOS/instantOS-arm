@@ -1,8 +1,7 @@
-
-kernel="linux-raspberrypi4-5.4.y"
+#!/bin/bash
 pacman-key --init
 pacman-key --populate archlinuxarm
-yes | pacman -Sy ${kernel} ${kernel}-headers raspberrypi-firmware mesa-arm-git mesa-vdpau-arm-git instantos rofi-git instantdepend lxsession dunst alsa-utils
+yes | pacman -Sy linux-raspberrypi4-5.4.y linux-raspberrypi4-5.4.y-headers raspberrypi-firmware mesa-arm-git mesa-vdpau-arm-git instantos rofi-git instantdepend lxsession dunst alsa-utils
 
 if grep -q 'greeter-session' /etc/lightdm/lightdm.conf; then
     LASTSESSION="$(grep 'greeter-session' /etc/lightdm/lightdm.conf | tail -1)"
