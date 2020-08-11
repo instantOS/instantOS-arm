@@ -20,7 +20,7 @@ sed -i 's/^#logind-check-graphical=.*/logind-check-graphical=true/' /etc/lightdm
 sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 
 #enable services
-systemctl enable lightdm
+# systemctl enable lightdm
 systemctl enable NetworkManager
 systemctl enable systemd-timesyncd
 
