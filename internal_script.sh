@@ -28,7 +28,7 @@ systemctl enable systemd-timesyncd
 def_username="instantos"
 def_password="instantos"
 useradd -m ${def_username}
-echo ${def_password} | passwd --stdin ${def_username}
+eecho -e "${def_password}\n${def_password}" | passwd "$(def_username)"
 
 echo '''#!/bin/sh``` > /home/${def_username}/.xserverrc
 echo '''exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR''' >> /home/${def_username}/.xserverrc
