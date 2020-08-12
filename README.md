@@ -1,5 +1,5 @@
-# instantARCH-raspi
+# instantOS arm
 
 
 ## Todo:
-https://github.com/Titaniumtown/instantARCH-raspi/projects/2
+https://github.com/instantOS/instantOS-arm/projects/1
