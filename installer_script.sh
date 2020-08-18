@@ -10,9 +10,9 @@ do
 		echo $item $(lsblk -dn /dev/"$item" | awk '{ print $4 }') $(cat /sys/block/$item/device/model) >> /tmp/raspiinstaller
 done
 
-drive=$(cat /tmp/raspiinstaller | fzf)
+drive=$(cat /tmp/raspiinstaller | fzf || echo sda)
 
-echo Are you sure this is the right drive: $drive?
+echo Are you sure this is the right drive: $(echo $drive | sed 's/\s.*$//' )?
 
 read right
 rm /tmp/raspiinstaller > /dev/null 2>&1
