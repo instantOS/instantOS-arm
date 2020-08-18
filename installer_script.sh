@@ -1,5 +1,6 @@
 #!/bin/bash
 
+(( $(id -u) == 0 )) || { echo >&2 "Must be root to run script"; exit 1; }
 rm /tmp/raspiinstaller > /dev/null 2>&1
 
 drives=$(lsblk -n | awk '!/─/' | awk '{ print $1 }')
@@ -13,6 +14,6 @@ drive=$(cat /tmp/raspiinstaller | fzf)
 
 echo Are you sure this is the right drive: $drive?
 
-#read right
-
+read right
+rm /tmp/raspiinstaller > /dev/null 2>&1
 
