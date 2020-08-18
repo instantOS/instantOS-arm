@@ -36,3 +36,6 @@ echo "instantxsession" > /home/instantos/.xinitrc
 echo "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then" > /home/instantos/.bash_profile
 echo "  exec startx" >> /home/instantos/.bash_profile
 echo "fi" >> /home/instantos/.bash_profile
+
+# Add instantos user to sudoers
+echo "instantos ALL=(ALL) ALL" >> /etc/sudoers
