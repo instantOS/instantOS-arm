@@ -2,24 +2,11 @@
 pacman-key --init
 pacman-key --populate archlinuxarm
 
-if grep -q 'greeter-session' /etc/lightdm/lightdm.conf; then
-    LASTSESSION="$(grep 'greeter-session' /etc/lightdm/lightdm.conf | tail -1)"
-    sed -i "s/$LASTSESSION/greeter-session=lightdm-gtk-greeter/g"  /etc/lightdm/lightdm.conf
-else
-	sed -i 's/^\[Seat:\*\]/\[Seat:\*\]\ngreeter-session=lightdm-gtk-greeter/g' /etc/lightdm/lightdm.conf
-fi
-
-
-if grep -q '^user-session.*' /etc/lightdm/lightdm.conf; then
-    echo "adjusting user session"
-    sed -i 's/^user-session=.*/user-session=instantwm/g' /etc/lightdm/lightdm.conf
-fi
 
 sed -i 's/^#logind-check-graphical=.*/logind-check-graphical=true/' /etc/lightdm/lightdm.conf
 sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 
 #enable services
-# systemctl enable lightdm
 systemctl enable NetworkManager
 systemctl enable systemd-timesyncd
 
@@ -36,3 +23,6 @@ echo "instantxsession" > /home/instantos/.xinitrc
 echo "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then" > /home/instantos/.bash_profile
 echo "  exec startx" >> /home/instantos/.bash_profile
 echo "fi" >> /home/instantos/.bash_profile
+
+# Add instantos user to sudoers
+echo "instantos ALL=(ALL) ALL" >> /etc/sudoers
