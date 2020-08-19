@@ -2,8 +2,6 @@
 pacman-key --init
 pacman-key --populate archlinuxarm
 
-
-sed -i 's/^#logind-check-graphical=.*/logind-check-graphical=true/' /etc/lightdm/lightdm.conf
 sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 
 #enable services
