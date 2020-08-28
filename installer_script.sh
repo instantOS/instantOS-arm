@@ -28,3 +28,6 @@ parted --script /dev/"$disk" -- \
         mkpart esp fat32 1MiB 1GiB \
         mkpart primary 1GiB 100% \
         set 1 boot on
+
+mkfs.vfat /dev/"$disk"1
+mkfs.ext4 /dev/"$disk"2
