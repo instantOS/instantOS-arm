@@ -10,7 +10,12 @@ systemctl enable systemd-timesyncd
 
 #create user
 useradd -m instantos
+## set instantos user password to instantos
 echo -e "instantos\ninstantos" | passwd instantos
+
+#set root password to root
+echo -e "root\nroot" | passwd root
+
 
 echo "#!/bin/sh" > /home/instantos/.xserverrc
 echo `exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR` >> /home/instantos/.xserverrc
