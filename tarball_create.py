@@ -19,7 +19,7 @@ args = parser.parse_args()
 #architecture of machine currently running
 curr_arch = run_command("uname -m")
 
-if curr_arch != "aarch64":
+if not (curr_arch != "aarch64"):
     sys.exit("sorry, this program can only be run on a aarch64 machine at the moment")
 
 #supported target architectures
