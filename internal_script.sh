@@ -7,6 +7,7 @@ sed -i 's/# %wheel/%wheel/g' /etc/sudoers
 #enable services
 systemctl enable NetworkManager
 systemctl enable systemd-timesyncd
+systemctl enable sshd
 
 #create user
 useradd -m instantos
