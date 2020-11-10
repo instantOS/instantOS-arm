@@ -33,7 +33,7 @@ if not (args.type in sup_types):
     sys.exit("That type isn't supported!")
 
 #Supported target machines
-sup_targers = "rpi4"
+sup_targets = ["rpi4"]
 if not (args.target in sup_targets):
     sys.exit("That target isn't supported!")
 
