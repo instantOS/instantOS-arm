@@ -1,6 +1,7 @@
 #!/bin/bash
 (( $(id -u) == 0 )) || { echo >&2 "Must be root to run script"; exit 1; }
-(( $(uname -m) != "aarch64" )) || { echo >&2 "sorry, this script only supports aarch64 at the moment"; exit 1; }
+arch=$(uname -m | tr -d '\n')
+if [[ "$arch" != "aarch64" ]]; then echo >&2 "sorry, this script only supports aarch64 at the moment"; fi
 #Note: Run this script on a raspberry pi 4, to generate a functioning tar ball
 mkdir target_root
 kernel="linux-raspberrypi4-5.4.y"
