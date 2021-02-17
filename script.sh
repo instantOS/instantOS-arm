@@ -91,3 +91,7 @@ cd "${targetChroot}"
 tar -I pzstd -cf "../${tarName}.tar.zst" .
 cd ..
 stop_spinner $?
+
+start_spinner "Deleting ${targetChroot}..."
+rm -fr $targetChroot
+stop_spinner $?
