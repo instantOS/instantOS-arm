@@ -54,7 +54,7 @@ if [[ "$silentPacstrap" == "False" ]]; then
     pacstrap -C "chroot_things/pacman.conf" "${targetChroot}" ${packageList}
 elif [[ "$silentPacstrap" == "True" ]]; then
 start_spinner 'Running pacstrap...'
-    pacstrap -C "chroot_things/pacman.conf" "${targetChroot}" ${packageList} 2>&1
+    pacstrap -C "chroot_things/pacman.conf" "${targetChroot}" ${packageList} > /dev/null
     stop_spinner $?
 else
     echo "ERROR: variable silentPacstrap is invalid"
