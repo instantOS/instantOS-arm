@@ -4,7 +4,7 @@ set -e # exit script if any command fails
 
 # Options:
 targetDevice="rpi4" # target device (doesn't do anything yet)
-buildType="full" # specify build type here, full = gui and everything, lite = full without gui
+buildType="lite" # specify build type here, full = gui and everything, lite = full without gui
 silentPacstrap="False" # specifies whether or not pacstrap outputs anything to the terminal
 
 # Print options:
@@ -33,7 +33,7 @@ echo -e "date: ${date}\n"
 
 tarName="instantOS-arm-raspi4-${date}"
 
-basePackages="base base-devel networkmanager ${kernel} ${kernel}-headers raspberrypi-firmware raspberrypi-bootloader" # packages included in all builds
+basePackages="base base-devel networkmanager ${kernel} ${kernel}-headers raspberrypi-firmware raspberrypi-bootloader openssh" # packages included in all builds
 instantoOSPackages="grub-instantos instantassist instantclipmenu instantconf instantcursors instantdotfiles instantextra instantfonts instantlaunch instantlock instantmenu instantnotify instantos instantpacman instantsearch instantsettings instantshell instantsupport instantthemes instanttools instantupdate instantutils instantwallpaper instantwelcome instantwidgets instantwm plymouth-theme-instantos st-instantos ufetch-instantos" # instantos-specific packages - TODO: remove grub dependency as it's unneeded on raspberry pis
 fullPackages="${basePackages} mesa mesa-vdpau rofi-git lxsession dunst alsa-utils raspberrypi-bootloader xorg-xinit xorg-server ${instantosPackages}" # packages for the full build
 

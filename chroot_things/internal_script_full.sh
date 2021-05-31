@@ -16,7 +16,7 @@ echo -e "instantos\ninstantos" | passwd instantos
 
 #set root password to root
 echo -e "root\nroot" | passwd root
-
+echo "/dev/mmcblk0p1 /boot vfat defaults,rw 0 0" >> /etc/fstab
 
 echo "#!/bin/sh" > /home/instantos/.xserverrc
 echo `exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR` >> /home/instantos/.xserverrc
