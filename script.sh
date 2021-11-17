@@ -26,7 +26,7 @@ if [[ "$arch" != "aarch64" ]]; then echo >&2 "sorry, this script only supports a
 if [ -d "${targetChroot}" ]; then rm -rf "${targetChroot}"; fi
 
 mkdir "${targetChroot}"
-kernel="linux-raspberrypi4-5.10.y"
+kernel="linux-raspberrypi4-5.15.y"
 
 date=$(date +"%F" | tr -d '\n')
 echo -e "date: ${date}\n"
